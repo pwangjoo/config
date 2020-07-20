@@ -1,0 +1,23 @@
+# image
+FROM ubuntu:18.04
+ENV DEBIAN_FRONTEND noninteractive
+
+# update ubuntu
+RUN apt-get update
+RUN apt-get install apt-utils -y
+RUN apt-get upgrade -y
+RUN apt-get autoremove -y
+RUN apt-get autoclean -y
+
+# install python & pip
+RUN apt-get install python3.6 -y
+RUN apt-get install python3-pip -y
+
+# set default library
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
+RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+
+# create user and workdir
+RUN useradd -ms /bin/bash june
+USER june
+WORKDIR /home/june
