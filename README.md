@@ -1,10 +1,12 @@
 # README.md
 
 Introducing basic commands for managing Docker environments
-* Please do "NOT" install any other packages other than Docker and its dependencies
-* Highly recommend "NOT" using `conda` (can be replaced with `pip`) in Docker environments
-* Highly suggest generating new Docker environment to test different settings
-* Recommend setting NON_ROOT USER to run Docker environments (reference non_root.Dockerfile)
+* Please do __NOT__ install any other packages other than Docker and its dependencies
+* Highly suggest generating new images and containers to test different settings
+* Highly recommend using `pip` instead of `conda` in containers
+* You can access __Jupyter Notebook__ of a certain container by opening up the port with `-p` command
+* To use __Jupyter Notebook__, `$ pip install jupyter_client=5.3.1 (stable)`
+* Recommend setting up __non-root USER__ to run containers (reference [/docker](https://github.com/pwangjoo/test/blob/master/docker))
 
 ## `Docker-19.03.8` (stable)
 
@@ -12,6 +14,7 @@ Introducing basic commands for managing Docker environments
 ```
 $ docker info
 
+$ docker pull [image]:[tag]
 $ docker image ls
 $ docker ps -a
 
