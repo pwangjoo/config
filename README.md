@@ -27,7 +27,7 @@ $ docker (image) rm [name]
 $ docker build -t [name]:[tag] [dockerfile_dir]
 
 $ docker run -i -t -d -v [host_dir]:[target_dir] -p [IP]:[host]:[target] --name [name] [image]:[tag]
-$ docker exec -i -t [container] bin bash
+$ docker exec -i -t [container] bash
 ```
 
 ## `Ubuntu-18.04` (stable)
