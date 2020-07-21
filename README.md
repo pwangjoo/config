@@ -35,12 +35,12 @@ $ docker restart [container] #restart container and its processes
 ```
 Use: `$ docker run -itd -v ":D\github":"/usr/KE" -p 8888:8888 --name test KE:0.1`
 
-## `Ubuntu-18.04` (stable)
+## Ubuntu-18.04 (stable)
 
 ### Initial settings under Docker container
 ``` bash
 $ export DEBIAN_FRONTEND="noninteractive" #supress errors under Docker environments
-$ apt update #update packages
+$ apt update #update Ubuntu repositories
 ```
 
 ### Setting up `sudo` & Running as a non-root user
