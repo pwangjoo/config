@@ -7,7 +7,7 @@ Introducing basic commands for managing Docker environments
 * Highly suggest generating new images and containers to test different settings
 * You can access __Jupyter Notebook__ of a certain container by opening up the port with `-p` command
 * To use __Jupyter Notebook__ use `$ pip(conda) install jupyter_client=5.3.1 (stable)` command
-* Recommend setting up __non-root USER__ to run containers (reference [/docker](https://github.com/pwangjoo/test/blob/master/docker))
+* Recommend setting up __non-root USER__ to run commands inside the containers
 
 ## `Docker-19.03.8` (stable)
 
@@ -22,25 +22,33 @@ $ docker ps -a
 $ docker (image) rm [name]
 ```
 
-### `Docker` build & run
+### `Docker` build & run & stop
 ```
 $ docker build -t [name]:[tag] [dockerfile_dir]
 
-$ docker run -i -t -d -v [host_dir]:[target_dir] -p [IP]:[host]:[target] --name [name] [image]:[tag]
-$ docker exec -i -t [container] bash
+$ docker run -itd -v [host_dir]:[target_dir] -p [IP]:[host]:[target] --name [name] [image]:[tag]
+$ docker exec -it [container] bash
+$ docker stop [container]
 ```
 
 ## `Ubuntu-18.04` (stable)
 
-### initial `apt-get` command
+### initial settings under `Docker` container
 ```
-$ apt-get update && upgrade -y
-$ apt-get install -y --no-install-recommends \
-    build-essential
-$ apt-get autoremove -y && autoclean -y
+# export DEBIAN_FRONTEND="noninteractive"
+# apt-get update
 ```
 
-### package management
+### setting up `sudo` and running as non-root user
 ```
+# apt-get install sudo
+# useradd -ms -p [passwd] [user]
+# usermod -aG sudo [user]
+# su - [user]
+```
+
+### `apt` and other package management
+```
+$ sudo apt upgrade -y && apt install apt-utils -qq && apt autoremove -y && apt autoclean -y
 $ update-alternatives --install /usr/bin/[cmd] [cmd] /usr/bin/[package] [#]
 ```
