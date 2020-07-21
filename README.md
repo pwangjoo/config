@@ -1,31 +1,42 @@
 # README.md
 
-## `Miniconda-4.7.12` (Recent)
+Introducing basic commands for managing Docker environments
+* Please do "NOT" install any other packages other than Docker and its dependencies
+* Highly recommend "NOT" using `conda` (can be replaced with `pip`) in Docker environments
+* Highly suggest generating new Docker environment to test different settings
+* Recommend setting NON_ROOT USER to run Docker environments (reference non_root.Dockerfile)
 
-### initial `miniconda` configuration
-```
-$ conda update conda
-$ conda clean -a
-```
+## `Docker-19.03.8` (stable)
 
-### set-up `jupyter`
+### `Docker` management
 ```
-$ conda install jupyter nb_conda_kernels jupyter_client=5.3.1 (stable)
-```
+$ docker info
 
-### command for `miniconda`
-```
-$ conda (env) list
-$ conda (env) remove NAME
+$ docker image ls
+$ docker ps -a
 
-$ conda create -n NAME
-$ conda activate NAME
-$ conda deactivate
+$ docker (image) rm [name]
 ```
 
-## `Google Colab`
-
-### command for `colab`
+### `Docker` build & run
 ```
-$ !git clone URL
+$ docker build -t [name]:[tag] [dockerfile_dir]
+
+$ docker run -i -t -d -v [host_dir]:[target_dir] -p [IP]:[host]:[target] --name [name] [image]:[tag]
+$ docker exec -i -t [container] bin bash
+```
+
+## `Ubuntu-18.04` (stable)
+
+### initial `apt-get` command
+```
+$ apt-get update && upgrade -y
+$ apt-get install -y --no-install-recommends \
+    build-essential
+$ apt-get autoremove -y && autoclean -y
+```
+
+### package management
+```
+$ update-alternatives --install /usr/bin/[cmd] [cmd] /usr/bin/[package] [#]
 ```
