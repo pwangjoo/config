@@ -14,14 +14,14 @@ Introduction to basic commands for __Docker__ environment management.
 $ docker info #chech Docker version and resources
 
 $ docker pull [image]:[tag] #pull an image from the docker hub
-$ docker build -t [name]:[tag] -f [dockerfile] #build an image named [name]:[tag] using .Dockerfile
+$ docker build -t [name]:[tag] --force-rm -q [dockerfile_dir] #build an image named [name]:[tag] using .Dockerfile
 
 $ docker image ls #list all images
 $ docker ps -a #list all containers (both idle and active)
 
 $ docker (image) rm [name] #remove container(image)
 ```
-Usage: `$ docker build -t KE:0.1 -f ":C\Users\KE\Dockerfile"` (directory)
+Usage: `$ docker build -t test:1.0 --force-rm -q D:\github\test\docker`
 
 ### Docker run & stop
 ```bash
@@ -58,7 +58,7 @@ Enjoy coding. :)
 
 ## Helpful commands
 
-### `apt-get`
+### Advanced packaging tool, `apt-get`
 Prefix `sudo` is necessary for certain commands under __non-root user__ mode.\
 Use suffix `-y` to pre-answer Y, `-q` for quiet mode, `-qq` for even more quiet mode.
 
@@ -88,9 +88,12 @@ $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 $ chmod +x Miniconda3-latest-Linux-x86_64.sh #download latest miniconda3
 $ ./Miniconda3-latest-Linux-x86_64.sh #install miniconda3
 
+$ pip (or conda) install jupyter
 $ jupyter notebook --ip=0.0.0.0 --port=8888 #execute jupyter notebook under localhost
+$ jupyter notebook list #show jupyter notebook token
 ```
 Recommend installation of `pip`.\
-If `conda` is necessary, consider __miniconda__ over __anaconda__. (GUI is not supported for servers)\
+If `conda` is necessary, consider __miniconda__ over __anaconda__. (GUI not supported.)\
 You need to log out and log back in to activate __Jupyter Notebook__ installation.\
-Use suffix `--allow-root` for root privilege, `--no-browser` to run on background.
+Use suffix `--allow-root` for root privilege.\
+Run `$ jupyter notebook &> /dev/null &` to run on background.
