@@ -1,0 +1,12 @@
+https://github.com/richzhang/PerceptualSimilarity
+https://github.com/paucarre/tiefvision
+https://github.com/EdjoLabs/image-match
+https://github.com/matsui528/sis
+https://github.com/CVxTz/image_search_engine
+https://github.com/sethuiyer/Image-to-Image-Search
+https://github.com/AllenCellModeling/pytorch_fnet
+
+
+https://blog.nerdfactory.ai/2019/02/26/image-search-ai-based-on-augmented-learning.html
+https://inyl.github.io/programming/2017/08/11/cnn_image_search.html
+https://medium.com/daangn/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%83%90%EC%A7%80%EA%B8%B0-%EC%89%BD%EA%B2%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-abd967638c8e
