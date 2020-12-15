@@ -38,7 +38,7 @@ You need to open up the port with `-p` command when generating a container to us
 
 ### Initial settings under Docker container
 This can be also set up previously with __Dockerfile__.\
-For usage of __Dockerfile__, check out [/docker](https://github.com/pwangjoo/test/tree/master/docker).
+For usage of __Dockerfile__, check out [/config](https://github.com/pwangjoo/docker/tree/master/config).
 ```bash
 $ export DEBIAN_FRONTEND="noninteractive" #suppress errors under Docker environments
 $ apt-get update #update Ubuntu repositories
