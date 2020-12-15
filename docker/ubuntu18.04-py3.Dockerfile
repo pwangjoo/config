@@ -17,4 +17,7 @@ RUN apt-get autoremove -y && apt-get clean -y
 
 # set up user mode
 RUN apt-get install sudo
-RUN useradd -ms /bin/bash KE && usermod -aG sudo KE
+RUN useradd -ms /bin/bash USER && usermod -aG sudo USER
+
+# set up working dir
+WORKDIR /home

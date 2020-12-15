@@ -11,17 +11,17 @@ Introduction to basic commands for __Docker__ environment management.
 
 ### Docker management
 ```bash
-$ docker info #chech Docker version and resources
+$ docker info #check Docker version and resources
 
 $ docker pull [image]:[tag] #pull an image from the docker hub
-$ docker build -t [name]:[tag] --force-rm -q [dockerfile_dir] #build an image named [name]:[tag] using .Dockerfile
+$ docker build -t [name]:[tag] --force-rm -q [dockerfile_dir] #build an image named [name]:[tag] using Dockerfile
 
 $ docker image ls #list all images
 $ docker ps -a #list all containers (both idle and active)
 
 $ docker (image) rm [name] #remove container(image)
 ```
-Usage: `$ docker build -t test:1.0 --force-rm -q D:\github\test\docker`
+Usage: `$ docker build -t image:latest --force-rm -q C:/github/docker`
 
 ### Docker run & stop
 ```bash
@@ -31,14 +31,14 @@ $ docker exec -it [container] bash #execute container with shell /bin/bash
 $ docker stop [container] #end container and its processes
 $ docker restart [container] #restart container and its processes
 ```
-Usage: `$ docker run -itd -v ":D\github":"/usr/KE" -p 8888:8888 --name test KE:0.1`\
+Usage: `$ docker run -itd -v ":C/github":"/home" -p 8888:8888 --name cont NAME:latest`\
 You need to open up the port with `-p` command when generating a container to use __Jupyter Notebook__.
 
 ## Ubuntu-18.04 (stable)
 
 ### Initial settings under Docker container
 This can be also set up previously with __Dockerfile__.\
-For usage of __Dockerfile__, check out [/docker](https://github.com/pwangjoo/test/tree/master/docker). The file must be renamed as Dockerfile to be built.
+For usage of __Dockerfile__, check out [/docker](https://github.com/pwangjoo/test/tree/master/docker).
 ```bash
 $ export DEBIAN_FRONTEND="noninteractive" #suppress errors under Docker environments
 $ apt-get update #update Ubuntu repositories
@@ -47,14 +47,13 @@ $ apt-get update #update Ubuntu repositories
 ### Setting up `sudo` & Running as a non-root user
 ```bash
 $ apt-get install sudo #install command `sudo`
-$ useradd -ms /bin/bash [user] #add non-user with home dir and shell
-$ usermod -aG sudo [user] #assign non-user to group `sudo`
-$ passwd [user] #set password for non-user (interactive - cannot be scripted)
+$ useradd -ms /bin/bash [user] #add non-root user with home dir and shell
+$ usermod -aG sudo [user] #assign non-root user to group `sudo`
+$ passwd [user] #set password for non-root user (interactive - cannot be scripted)
 $ su - [user] #log-in shell as a non-root user
 ```
 
-Now your container is equivalent to general vanilla Ubuntu environments.\
-Enjoy coding. :)
+Running `sudo` will now require a password.
 
 ## Helpful commands
 
@@ -83,15 +82,11 @@ Usage: `$ update-alternatives --install /usr/bin/python python /usr/bin/python3.
 ### Installing Jupyter Notebook & running
 ```bash
 #pip
-$ apt-get install python-pip #install pip (python3-pip for pip3)
 $ pip install jupyter
 $ python -m notebook --ip=0.0.0.0 --port=8888 #execute jupyter notebook under localhost
 $ python -m notebook list #show jupyter notebook token
 
 #conda
-$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-$ chmod +x Miniconda3-latest-Linux-x86_64.sh #download latest miniconda3
-$ ./Miniconda3-latest-Linux-x86_64.sh #install miniconda3
 $ conda install jupyter
 $ jupyter notebook --ip=0.0.0.0 --port=8888 #execute jupyter notebook under localhost
 $ jupyter notebook list #show jupyter notebook token
