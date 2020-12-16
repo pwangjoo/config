@@ -24,7 +24,7 @@ $ brew cleanup #delete caches older than 120 days
 
 ### Using BrewFile
 You can install Home brew supported packages with one que.\
-An example for __BrewFile__ can be found at [BrewFile](https://github.com/pwangjoo/config/tree/master/brew/BrewFile).\
-Run Below command where BrewFile exists.\
+An example for __BrewFile__ can be found at [BrewFile](https://github.com/pwangjoo/config/blob/master/brew/Brewfile).\
+Run Below command where BrewFile exists.
 
 Usage: `$ brew bundle`
