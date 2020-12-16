@@ -34,7 +34,7 @@ Usage: `$ docker run -itd -v "PATH/TO/HOST":"PATH/TO/REMOTE" -p 8888:8888 --name
 
 ### Initial settings under Docker container
 This can be also set up previously with __Dockerfile__.\
-For usage of __Dockerfile__, check out [Dockerfile](https://github.com/pwangjoo/config/blob/master/docker/ubuntu18.04-py3.Dockerfile).
+For usage of __Dockerfile__, check out [Dockerfile](https://github.com/pwangjoo/config/blob/master/docker/ubuntu18.04-py3.6.1.Dockerfile).
 ```bash
 $ export DEBIAN_FRONTEND="noninteractive" #suppress errors under Docker environments
 $ apt-get update #update Ubuntu repositories
