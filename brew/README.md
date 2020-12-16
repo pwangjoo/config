@@ -13,7 +13,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 ### General usage
 ```bash
-$ brew search [keyword] #search homebrew supported packages with keyword
+$ brew search [keyword] #search Homebrew supported packages with keyword
 
 $ brew install (--cask) [packages] #install packages
 $ brew uninstall [packages] #uninstall packages
@@ -22,9 +22,9 @@ $ brew autoremove #purge unused dependency packages
 $ brew cleanup #delete caches older than 120 days
 ```
 
-### Using BrewFile
-You can install Home brew supported packages with one que.\
-An example for __BrewFile__ can be found at [BrewFile](https://github.com/pwangjoo/config/blob/master/brew/Brewfile).\
-Run Below command where BrewFile exists.
+### Using Brewfile
+You can install Homebrew supported packages with a que.\
+An example for __Brewfile__ can be found at [here](https://github.com/pwangjoo/config/blob/master/brew/Brewfile).\
+Run below command under Brewfile directory.
 
 Usage: `$ brew bundle`

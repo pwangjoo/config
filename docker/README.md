@@ -1,5 +1,5 @@
 # README.md
-Introduction to basic commands for __Docker__ environment management.
+Introduction to basic commands for __Docker__ management.
 * Please do __NOT__ install any other packages other than __Docker__ and its dependencies.
 * Highly suggest generating new images and containers to test different settings.
 * Recommend setting up __non-root user__ to run general commands inside the containers.
@@ -18,7 +18,7 @@ $ docker ps -a #list all containers (both idle and active)
 
 $ docker (image) rm [name] #remove container(image)
 ```
-Usage: `$ docker build -t image:latest --force-rm -q C:/github/docker`
+Usage: `$ docker build -t image:latest --force-rm -q PATH/TO/DOCKERFILE`
 
 ### Docker run & stop
 ```bash
@@ -28,14 +28,13 @@ $ docker exec -it [container] bash #execute container with shell /bin/bash
 $ docker stop [container] #end container and its processes
 $ docker restart [container] #restart container and its processes
 ```
-Usage: `$ docker run -itd -v ":C/github":"/home" -p 8888:8888 --name cont NAME:latest`\
-You need to open up the port with `-p` command when generating a container to use __Jupyter Notebook__.
+Usage: `$ docker run -itd -v "PATH/TO/HOST":"PATH/TO/REMOTE" -p 8888:8888 --name CONT NAME:TAG`
 
 ## Ubuntu-18.04 (stable)
 
 ### Initial settings under Docker container
 This can be also set up previously with __Dockerfile__.\
-For usage of __Dockerfile__, check out [/config](https://github.com/pwangjoo/docker/tree/master/config).
+For usage of __Dockerfile__, check out [Dockerfile](https://github.com/pwangjoo/config/blob/master/docker/ubuntu18.04-py3.Dockerfile).
 ```bash
 $ export DEBIAN_FRONTEND="noninteractive" #suppress errors under Docker environments
 $ apt-get update #update Ubuntu repositories
@@ -46,10 +45,11 @@ $ apt-get update #update Ubuntu repositories
 $ apt-get install sudo #install command `sudo`
 $ useradd -ms /bin/bash [user] #add non-root user with home dir and shell
 $ usermod -aG sudo [user] #assign non-root user to group `sudo`
+
 $ passwd [user] #set password for non-root user (interactive - cannot be scripted)
+
 $ su - [user] #log-in shell as a non-root user
 ```
-
 Running `sudo` will now require a password.
 
 ## Helpful commands
@@ -57,7 +57,6 @@ Running `sudo` will now require a password.
 ### Advanced packaging tool, `apt-get`
 Prefix `sudo` is necessary for certain commands under __non-root user__ mode.\
 Use suffix `-y` to pre-answer Y, `-q` for quiet mode, `-qq` for even more quiet mode.
-
 ```bash
 $ apt-get upgrade #update Ubuntu packages to newest version
 

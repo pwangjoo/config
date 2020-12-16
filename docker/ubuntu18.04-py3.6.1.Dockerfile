@@ -8,8 +8,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install apt-utils -y
 
 # install python packages
-RUN apt-get install python3 python3-pip -y
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+RUN apt-get install python3.6.1 python3-pip -y
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6.1 1
 RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
 # clean

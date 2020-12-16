@@ -3,8 +3,8 @@ services:
   python3.9:
     build:
       context: ./
-      dockerfile: ubuntu18.04-py3.Dockerfile
-    image: python:3.9.1
+      dockerfile: ubuntu18.04-py3.6.1.Dockerfile
+    image: python:3.6.1
     container_name: python3.9
     volumes:
       - /Users/noru/Documents/github:/home
