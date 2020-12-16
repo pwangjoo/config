@@ -1,11 +1,11 @@
 version: "3.9"
 services:
-  python3.6:
+  python3.9:
     build:
       context: ./
       dockerfile: ubuntu18.04-py3.Dockerfile
-    image: ubuntu18.04-python3.6:0.1
-    container_name: py3.6
+    image: python:3.9.1
+    container_name: python3.9
     volumes:
       - /Users/noru/Documents/github:/home
     ports:
