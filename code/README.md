@@ -2,24 +2,24 @@
 집에 남는 맥북으로 `code-server` 돌리는 방법
 
 ## 1. Homebrew 설치하기
-```bash
-$ xcode-select --install
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```zsh
+% xcode-select --install
+% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ## 2. Nginx, Certbot, Chrome, Code-Server 설치하기
-```bash
-$ brew install nginx certbot code-server
-$ brew install --cask google-chrome
+```zsh
+% brew install nginx certbot code-server
+% brew install --cask google-chrome
 ```
 ## 3. Nginx 세팅하기
 ### 3.1 Certbot 라이선스 발급받기
-```bash
-$ sudo certbot certonly --standalone
-$ sudo chmod -R 755 /etc/letsencrypt/live/mydomain.com
+```zsh
+% sudo certbot certonly --standalone
+% sudo chmod -R 755 /etc/letsencrypt/live/mydomain.com
 ```
 ### 3.2 `/usr/local/etc/nginx/.conf` 수정하기
-```bash
+```nginxconf
 worker_processes  1;
 
 events {
@@ -98,16 +98,23 @@ http {
 
 ## 4. Code-Server 세팅하기
 ### 4.1 `/Users/Admin/.config/code-server/config.yaml` 수정하기
-```bash
+```yaml
 bind-addr: 127.0.0.1:8080
 auth: password
 password: mypasswd
 cert: false
 ```
-### 4.2 Extension 설치하기
-```bash
-$ code-server --install-extension ms-toolsai.jupyter-2020.11.399280825.vsix # 최신 .vsix 다운로드
-$ code-server --install-extension ms-python.python
+### 4.2 Code 설정하기
+```json
+{
+    "extensions.autoUpdate": false,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.rulers": [80],
+}
 ```
-### 4.3 Extension 자동 업데이트 취소하기
-F1 > Extensions: Disable Auto Updating Extensions
+### 4.3 Extension 설치하기
+```zsh
+% code-server --install-extension ms-toolsai.jupyter-2020.11.399280825.vsix # 최신 .vsix 다운로드
+% code-server --install-extension ms-python.python
+```
