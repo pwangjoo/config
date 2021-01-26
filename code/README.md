@@ -12,14 +12,21 @@
 % brew install nginx certbot code-server
 % brew install --cask google-chrome
 ```
-## 3. Nginx 세팅하기
-### 3.1 Certbot 라이선스 발급받기
-```zsh
-% sudo certbot certonly --standalone
-% sudo chmod -R 755 /etc/letsencrypt/live/mydomain.com
+### 2.1 `/Users/Admin/.config/code-server/config.yaml` 수정하기
+```yaml
+bind-addr: 127.0.0.1:8080
+auth: password
+password: mypasswd
+cert: false
 ```
-### 3.2 `/usr/local/etc/nginx/.conf` 수정하기
-```nginxconf
+### 2.2 Code-Server 가동하기
+```zsh
+% brew services start code-server
+```
+
+## 3. Nginx 세팅하기
+### 3.1 `/usr/local/etc/nginx/.conf` 수정하기
+```nginx
 worker_processes  1;
 
 events {
@@ -34,6 +41,7 @@ http {
     keepalive_timeout  65;
 
     server {
+        listen 80;
         server_name  mydomain.com www.mydomain.com;
 
         location / {
@@ -48,13 +56,10 @@ http {
         
         access_log /Users/Admin/Documents/web/logs/access.log;
         error_log /Users/Admin/Documents/web/logs/error.log;
-    
-        listen 443 ssl http2;
-        ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem;
     }
 
     server {
+        listen 80;
         server_name  code.mydomain.com;
       
         location / {
@@ -67,44 +72,34 @@ http {
         
         access_log /Users/Admin/Documents/web/logs/code_access.log;
         error_log /Users/Admin/Documents/web/logs/code_error.log;
-    
-        listen 443 ssl http2;
-        ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem;
-    }
+        }
 
     include servers/*;
-
-    server {
-        if ($host = mydomain.com) {
-            return 301 https://$host$request_uri;
-        }
-
-        if ($host = www.mydomain.com) {
-            return 301 https://$host$request_uri;
-        }
-    
-        if ($host = code.mydomain.com) {
-            return 301 https://$host$request_uri;
-        }
-
-        listen 80;
-        listen [::]:80;
-        server_name mydomain.com www.mydomain.com code.mydomain.com;
-        return 404;
-    }
 }
 ```
-
-## 4. Code-Server 세팅하기
-### 4.1 `/Users/Admin/.config/code-server/config.yaml` 수정하기
-```yaml
-bind-addr: 127.0.0.1:8080
-auth: password
-password: mypasswd
-cert: false
+### 3.2 Nginx 서버 가동하기
+```zsh
+% brew services start nginx
 ```
-### 4.2 Code 설정하기
+### 3.3 Certbot으로 SSL인증받기
+```zsh
+% sudo certbot --nginx
+% sudo chmod -R 755 /etc/letsencrypt/live
+% sudo chmod -R 755 /etc/letsencrypt/live/mydomain.com
+% sudo chmod -R 755 /etc/letsencrypt/archive
+% sudo chmod -R 755 /etc/letsencrypt/archive/mydomain.com
+```
+### 3.4 Nginx Permission 수정하기
+```zsh
+% sudo chmod -R 755 /usr/local/var/run/nginx/proxy_temp
+```
+### 3.5 Nginx 서버 재가동하기
+```zsh
+% brew services restart nginx
+```
+
+## 4. Code-Server 상세 세팅하기
+### 4.1 Code 설정하기
 ```json
 {
     "extensions.autoUpdate": false,
@@ -113,7 +108,7 @@ cert: false
     "editor.rulers": [80],
 }
 ```
-### 4.3 Extension 설치하기
+### 4.2 Extension 설치하기
 ```zsh
 % code-server --install-extension ms-toolsai.jupyter-2020.11.399280825.vsix # 최신 .vsix 다운로드
 % code-server --install-extension ms-python.python
