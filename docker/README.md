@@ -7,28 +7,28 @@ Introduction to basic commands for __Docker__ management.
 ## Docker-19.03.8 (stable)
 
 ### Docker management
-```bash
-$ docker info #check Docker version and resources
+```zsh
+% docker info #check Docker version and resources
 
-$ docker pull [image]:[tag] #pull an image from the docker hub
-$ docker build -t [name]:[tag] --force-rm -q [dockerfile_dir] #build an image named [name]:[tag] using Dockerfile
+% docker pull [image]:[tag] #pull an image from the docker hub
+% docker build -t [name]:[tag] --force-rm -q [dockerfile_dir] #build an image named [name]:[tag] using Dockerfile
 
-$ docker image ls #list all images
-$ docker ps -a #list all containers (both idle and active)
+% docker image ls #list all images
+% docker ps -a #list all containers (both idle and active)
 
-$ docker (image) rm [name] #remove container(image)
+% docker (image) rm [name] #remove container(image)
 ```
-Usage: `$ docker build -t image:latest --force-rm -q PATH/TO/DOCKERFILE`
+Usage: `% docker build -t image:latest --force-rm -q PATH/TO/DOCKERFILE`
 
 ### Docker run & stop
-```bash
-$ docker run -itd -v [host_dir]:[target_dir] -p [host_IP]:[host]:[target] \
+```zsh
+% docker run -itd -v [host_dir]:[target_dir] -p [host_IP]:[host]:[target] \
     --name [name] [image]:[tag] #generate container from an image
-$ docker exec -it [container] bash #execute container with shell /bin/bash
-$ docker stop [container] #end container and its processes
-$ docker restart [container] #restart container and its processes
+% docker exec -it [container] bash #execute container with shell /bin/bash
+% docker stop [container] #end container and its processes
+% docker restart [container] #restart container and its processes
 ```
-Usage: `$ docker run -itd -v "PATH/TO/HOST":"PATH/TO/REMOTE" -p 8888:8888 --name CONT NAME:TAG`
+Usage: `% docker run -itd -v "PATH/TO/HOST":"PATH/TO/REMOTE" -p 8888:8888 --name CONT NAME:TAG`
 
 ## Ubuntu-18.04 (stable)
 

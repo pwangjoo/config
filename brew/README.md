@@ -6,25 +6,25 @@ Introduction to basic commands for __Homebrew__.
 ## Homebrew-2.6.2 (stable)
 Homebrew supports macOS Mojave (10.14) or higher.
 ### Installation
-```bash
-$ xcode-select --install #install prerequisite package
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" #install Homebrew
+```zsh
+% xcode-select --install #install prerequisite package
+% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" #install Homebrew
 ```
 
 ### General usage
-```bash
-$ brew search [keyword] #search Homebrew supported packages with keyword
+```zsh
+% brew search [keyword] #search Homebrew supported packages with keyword
 
-$ brew install (--cask) [packages] #install packages
-$ brew uninstall [packages] #uninstall packages
+% brew install (--cask) [packages] #install packages
+% brew uninstall [packages] #uninstall packages
 
-$ brew autoremove #purge unused dependency packages
-$ brew cleanup #delete caches older than 120 days
+% brew autoremove #purge unused dependency packages
+% brew cleanup #delete caches older than 120 days
 ```
 
 ### Using Brewfile
 You can install Homebrew supported packages with a que.\
-An example for __Brewfile__ can be found at [here](https://github.com/pwangjoo/config/blob/master/brew/Brewfile).\
+An example for __Brewfile__ can be found [here](https://github.com/pwangjoo/config/blob/master/brew/Brewfile).\
 Run below command under Brewfile directory.
 
-Usage: `$ brew bundle`
+Usage: `% brew bundle`

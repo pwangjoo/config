@@ -1,31 +1,24 @@
 # README.md
-집에 남는 맥북으로 `code-server` 돌리는 방법
+How to run `code-server` using Macbook
 
-## 1. Homebrew 설치하기
-```zsh
-% xcode-select --install
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-## 2. Nginx, Certbot, Chrome, Code-Server 설치하기
+## 1. Install Nginx, Certbot, Code-Server
 ```zsh
 % brew install nginx certbot code-server
-% brew install --cask google-chrome
 ```
-### 2.1 `/Users/Admin/.config/code-server/config.yaml` 수정하기
+### 1.1 Configure `/Users/Admin/.config/code-server/config.yaml`
 ```yaml
 bind-addr: 127.0.0.1:8080
 auth: password
 password: mypasswd
 cert: false
 ```
-### 2.2 Code-Server 가동하기
+### 1.2 Run Code-Server
 ```zsh
 % brew services start code-server
 ```
 
-## 3. Nginx 세팅하기
-### 3.1 `/usr/local/etc/nginx/.conf` 수정하기
+## 2. Set-up Nginx
+### 2.1 Configure `/usr/local/etc/nginx/.conf`
 ```nginx
 worker_processes  1;
 
@@ -77,11 +70,11 @@ http {
     include servers/*;
 }
 ```
-### 3.2 Nginx 서버 가동하기
+### 2.2 Run Nginx
 ```zsh
 % brew services start nginx
 ```
-### 3.3 Certbot으로 SSL인증받기
+### 2.3 Encrypt SSL using Certbot
 ```zsh
 % sudo certbot --nginx
 % sudo chmod -R 755 /etc/letsencrypt/live
@@ -89,27 +82,26 @@ http {
 % sudo chmod -R 755 /etc/letsencrypt/archive
 % sudo chmod -R 755 /etc/letsencrypt/archive/mydomain.com
 ```
-### 3.4 Nginx Permission 수정하기
+### 2.4 Update Nginx permission
 ```zsh
 % sudo chmod -R 755 /usr/local/var/run/nginx/proxy_temp
 ```
-### 3.5 Nginx 서버 재가동하기
+### 2.5 Restart Nginx
 ```zsh
 % brew services restart nginx
 ```
 
-## 4. Code-Server 상세 세팅하기
-### 4.1 Code 설정하기
+## 3. Set-up Code-Server
+### 3.1 Code configuration
 ```json
 {
     "extensions.autoUpdate": false,
     "workbench.colorTheme": "Default Dark+",
-    "workbench.startupEditor": "newUntitledFile",
     "editor.rulers": [80],
 }
 ```
-### 4.2 Extension 설치하기
+### 3.2 Installing extensions
 ```zsh
-% code-server --install-extension ms-toolsai.jupyter-2020.11.399280825.vsix # 최신 .vsix 다운로드
+% code-server --install-extension ms-toolsai.jupyter-2020.11.399280825.vsix #need to download .vsix beforehand
 % code-server --install-extension ms-python.python
 ```
