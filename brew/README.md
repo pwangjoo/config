@@ -5,11 +5,6 @@ Introduction to basic commands for __Homebrew__.
 
 ## Homebrew-2.6.2 (stable)
 Homebrew supports macOS Mojave (10.14) or higher.
-### Installation
-```zsh
-% xcode-select --install #install prerequisite package
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" #install Homebrew
-```
 
 ### General usage
 ```zsh

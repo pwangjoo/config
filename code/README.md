@@ -1,5 +1,5 @@
 # README.md
-How to run `code-server` using Macbook
+Introduction to running `code-server` using Macbook.
 
 ## 1. Install Nginx, Certbot, Code-Server
 ```zsh
