@@ -20,3 +20,8 @@ This repository was made & opened public to share personally.
 
 ### Set-up SSH
 Menu > System Preferences > Sharing > Remote Login
+
+### Stop Sleeping (1 for stop 0 to revoke)
+```zsh
+% sudo pmset -c disablesleep 1
+```
