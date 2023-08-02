@@ -1,0 +1,5 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+Host JUNE-Ubuntu22.04
+    HostName june.medgo.kr
+    User ubuntu
+    IdentityFile /Users/admin/.ssh/JUNE.pem

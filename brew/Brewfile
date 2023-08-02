@@ -1,7 +1,0 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-brew "node"
-brew "ruby"
-cask "google-chrome"
-cask "visual-studio-code"

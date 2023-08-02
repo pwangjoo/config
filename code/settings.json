@@ -1,0 +1,11 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.startupEditor": "none",
+  "git.confirmSync": false,
+  "editor.tabSize": 2,
+  "[html]": {
+      "editor.suggest.insertMode": "replace"
+  },
+  "html.validate.scripts": false,
+  "editor.rulers": [80]
+}

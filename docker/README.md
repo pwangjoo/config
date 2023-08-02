@@ -1,3 +1,5 @@
+NOTE: this document is currently outdated.
+
 # README.md
 Introduction to basic commands for __Docker__ management.
 * Please do __NOT__ install any other packages other than __Docker__ and its dependencies.
