@@ -56,4 +56,9 @@ sudo apt-get install -y nodejs
 ### Mysql
 ```bash
 $ mysqldump -u root -p [DBNAME] > ~/.mysql/[FILENAME].sql
+$ sudo mysql
+```
+```sql
+mysql> CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY '';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost';
 ```
