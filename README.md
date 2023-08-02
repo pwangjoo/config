@@ -52,3 +52,8 @@ $ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 ```
 (different version can be found [here](https://github.com/nodesource/distributions#installation-instructions))
+
+### Mysql
+```bash
+$ mysqldump -u root -p [DBNAME] > ~/.mysql/[FILENAME].sql
+```
