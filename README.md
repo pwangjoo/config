@@ -20,8 +20,8 @@ This repository was made & opened public to share personally.
 
 ### Configuring Git
 ```zsh
-% git config --global user.name "ID"
-% git config --global user.email "EMAIL"
+% git config --global user.name "[ID]"
+% git config --global user.email "[EMAIL]"
 ```
 
 ### Allowing SSH Access
