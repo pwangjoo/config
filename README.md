@@ -62,3 +62,6 @@ $ sudo mysql
 mysql> CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY '';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost';
 ```
+
+### Certbot
+check [website](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
