@@ -15,8 +15,16 @@ This repository was made & opened public to share personally.
 % brew install --cask [PACKAGE]
 % brew install [PACKAGE]
 ```
-* Casks: `google-chrome`, `discord`, `visual-studio-code`
-* Formula: `node@16`, `node@18`, `mysql`
+* Casks: `google-chrome`, `discord`, `visual-studio-code`, `mysqlworkbench`
+* Formula: `nvm`, `mysql`
+
+### Using NVM
+```zsh
+% nvm list #show list of installed nodes
+% nvm install [VERSION] #install certain version of node
+% nvm use v[VERSION] #temporarily use certain version of node
+% nvm alias default v[VERSION] #permanently use certain version of node
+```
 
 ### Configuring Git
 ```zsh
