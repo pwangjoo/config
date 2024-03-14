@@ -1,11 +1,9 @@
 {
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
-  "git.confirmSync": false,
+  "workbench.iconTheme": "vscode-icons",
   "editor.tabSize": 2,
-  "[html]": {
-      "editor.suggest.insertMode": "replace"
-  },
+  "git.confirmSync": false,
   "html.validate.scripts": false,
   "editor.rulers": [80]
 }
