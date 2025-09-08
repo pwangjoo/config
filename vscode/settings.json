@@ -5,5 +5,6 @@
   "editor.tabSize": 2,
   "git.confirmSync": false,
   "html.validate.scripts": false,
-  "editor.rulers": [80]
+  "editor.rulers": [80],
+  "editor.defaultColorDecoratorFormat": "hex"
 }
