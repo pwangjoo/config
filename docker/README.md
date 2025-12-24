@@ -19,6 +19,11 @@ Introduction to basic commands for __Docker__ management.
 % docker ps -a #list all containers (both idle and active)
 
 % docker (image) rm [name] #remove container(image)
+
+% docker container prune #remove all stopped containers
+% docker network prune #remove all unused network
+% docker system prune -a #remove all systems
+% docker-compose down --rmi all --volumes --remove-orphans #remove all images, volumes, containers
 ```
 Usage: `% docker build -t image:latest --force-rm -q PATH/TO/DOCKERFILE`
 
