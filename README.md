@@ -30,7 +30,17 @@ This repository was made & opened public to share personally.
 ```zsh
 % git config --global user.name "[ID]"
 % git config --global user.email "[EMAIL]"
+% git git commit --allow-empty -m "[chore] sync develop with main [no ci]"
 ```
+
+### Accessing Git via SSH
+```zsh
+% ssh-keygen -t ed25519 -C "[EMAIL]"
+% eval "$(ssh-agent -s)"
+% ssh-add ~/.ssh/id_ed25519
+% pbcopy < ~/.ssh/id_ed25519.pub
+```
+add the copied public key at [GitHub > Settings > SSH and GPG keys](https://github.com/settings/keys)
 
 ### Allowing SSH Access
 Menu > System Preferences > Sharing > Remote Login
