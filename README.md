@@ -30,7 +30,7 @@ This repository was made & opened public to share personally.
 ```zsh
 % git config --global user.name "[ID]"
 % git config --global user.email "[EMAIL]"
-% git git commit --allow-empty -m "[chore] sync develop with main [no ci]"
+% git commit --allow-empty -m "[chore] sync repositories [no ci]"
 ```
 
 ### Accessing Git via SSH
